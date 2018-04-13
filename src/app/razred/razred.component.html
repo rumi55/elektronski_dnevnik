@@ -1,0 +1,22 @@
+<h2>Razredi</h2>
+<div>
+  <label>Dodaj razred:
+    <input #razredRazred />
+  </label>
+  <button (click)="add(razredRazred.value); razredRazred.value=''">Dodaj</button>
+</div>
+<div>
+<h4><i>Izaberite razred kom dodeljujete odeljenja</i></h4>
+<ul class="razredi">
+  <li *ngFor="let razred of razredi">
+  <a routerLink='/razred/{{razred.id}}'>
+    <span class="badge">{{razred.id}}</span> {{razred.razred}}
+  </a>
+  <button class="delete" title="obriši razred"
+    (click)="delete(razred)">x</button>
+  </li>
+</ul>
+</div>
+<div>
+  <button (click)="goBack()" class="btn">Nazad</button>
+</div>

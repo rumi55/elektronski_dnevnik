@@ -1,0 +1,22 @@
+<h2>Roditelji</h2>
+<h4><i>Izaberite roditelja kojeg dodeljujete odabranom učeniku</i><h4>
+<ul class="roditelji">
+    <li class="paginacija"><input type="text" name="ime" [(ngModel)] = "filter.ime" placeholder="Unesite ime"></li>
+  <li *ngFor="let roditelj of roditelji | roditeljfilter:filter | slice:(page-1)*limit:page*limit" (click)="onSelect(roditelj)"
+       [class.selected]="roditelj === selectedRoditelj"
+       (click)="addUcenikToRoditelj()">
+    <span class="badge">{{roditelj.id}}</span> {{roditelj.ime}} {{roditelj.prezime}}
+  </li>
+  <li class="paginacija">
+    <label for="limit">Limit: </label>
+    <input type="number" name="limit" [(ngModel)]="limit" min="1" [attr.max]="[numberOfRoditelji]" step="1" placeholder="Limit">
+  </li>
+  <li class="paginacija">
+    <label for="page">Strana: </label>
+    <input type="number" name="page" [(ngModel)]="page" min="1" [attr.max]="[numberOfRoditelji]" step="1" placeholder="Page">
+  </li>
+</ul>
+
+<div>
+  <button (click)="goBack()" class="btn">Nazad</button>
+</div>

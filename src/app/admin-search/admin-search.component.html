@@ -1,0 +1,47 @@
+<div id="search-component">
+  <h4><i>Pretraga administratora</i></h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="Unesite jmbg" />
+
+  <ul class="search-result">
+    <li *ngFor="let administrator of administratori$ | async" >
+      <a routerLink='/administrator/{{administrator.id}}'>
+        {{administrator.jmbg}}
+      </a>
+    </li>
+  </ul>
+</div>
+
+<h4><i>Dodaj administratora</i><h4>
+    <div>
+      <label>Korisnik:<br/>
+       <input #administratorTipKorisnika />
+     </label><br/>
+      <label>Unesite ime:<br/>
+       <input #administratorIme />
+      </label><br/>
+      <label>Unesite prezime:<br/>
+       <input #administratorPrezime />
+      </label><br/>
+      <label>Unesite datum rodjenja:<br/>
+       <input #administratorDatumRodjenja />
+      </label><br/>
+    <label>Unesite jmbg:<br/>
+      <input #administratorJmbg />
+    </label><br/>
+    <label>Unesite adresu:<br/>
+      <input #administratorAdresa />
+    </label><br/>
+    <label>Unesite email:<br/>
+     <input #administratorEmail />
+    </label><br/>
+      <br/>
+      <button (click)="add(administratorTipKorisnika.value, administratorIme.value, administratorPrezime.value, administratorDatumRodjenja.value,
+      administratorJmbg.value, administratorAdresa.value, administratorEmail.value); administratorTipKorisnika.value='';
+      administratorIme.value=''; administratorPrezime.value=''; administratorDatumRodjenja.value=''; administratorJmbg.value='';
+      administratorAdresa.value=''; administratorEmail.value=''" class="btn">Dodaj administratora</button>
+  </div><br/>
+
+<div>
+  <button (click)="goBack()" class="btn">Nazad</button>
+</div>

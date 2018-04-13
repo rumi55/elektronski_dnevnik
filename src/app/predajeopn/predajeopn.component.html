@@ -1,0 +1,20 @@
+<h4><i>Izaberite predmet koji predaje odabrani nastavnik</i></h4>
+<ul class="predmeti">
+  <li class="paginacija"><input type="text" name="ime" [(ngModel)] = "filter.naziv" placeholder="Unesite predmet"></li>
+  <li *ngFor="let predmet of predmeti | predmetfilter: filter | slice:(page-1)*limit:page*limit" (click)="onSelect(predmet)"
+  [class.selected]="predmet === selectedPredmet"
+  (click)="addPredmetToNastavnikAndOdeljenje()">
+    <span class="badge">{{predmet.id}}</span> {{predmet.naziv}}
+</li>
+<li class="paginacija">
+  <label for="limit">Limit: </label>
+  <input type="number" name="limit" [(ngModel)]="limit" min="1" [attr.max]="[numberOfPredmeti]" step="1" placeholder="Limit">
+</li>
+<li class="paginacija">
+  <label for="page">Strana: </label>
+  <input type="number" name="page" [(ngModel)]="page" min="1" [attr.max]="[numberOfPredmeti]" step="1" placeholder="Page">
+</li>
+</ul>
+<div>
+  <button (click)="goBack()" class="btn">Nazad</button>
+</div>

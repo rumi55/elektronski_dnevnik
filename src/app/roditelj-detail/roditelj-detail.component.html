@@ -1,0 +1,48 @@
+<div *ngIf="roditelj">
+  <h2>Roditelj: {{ roditelj.ime | uppercase }} {{ roditelj.prezime | uppercase }}  </h2>
+  <div><span>ID: </span>{{roditelj.id}}</div>
+  <div>
+    <label>Tip korisnika:
+      <input [(ngModel)] = "roditelj.tipKorisnika" >
+    </label>
+  </div>
+  <div>
+    <label>Ime:
+      <input [(ngModel)] = "roditelj.ime" >
+    </label>
+  </div>
+  <div>
+    <label>Prezime:
+      <input [(ngModel)] = "roditelj.prezime" >
+    </label>
+  </div>
+  <div>
+    <label>Email:
+      <input [(ngModel)] = "roditelj.email" type="email">
+    </label>
+  </div>
+  <div>
+    <label>JMBG:
+      <input [(ngModel)] = "roditelj.jmbg" >
+    </label>
+  </div>
+  <div>
+    <label>Adresa:
+      <input [(ngModel)] = "roditelj.adresa" >
+    </label>
+  </div>
+  <div>
+    <label>Datum rodjenja:
+      <input [(ngModel)] = "roditelj.datumRodjenja">
+    </label>
+  </div><br/>
+  <div>
+    <button (click)="goBack()" class="btn">Nazad</button>
+  </div><br/>
+  <div>
+    <button (click)="save()" class="btn">Sačuvaj izmene</button>
+  </div><br/>
+<div>
+<button class="btn" (click)="delete(roditelj)">Obriši roditelja</button>
+</div>
+</div>

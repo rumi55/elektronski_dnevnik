@@ -1,0 +1,8 @@
+<h4><i>Roditelji dece koja pohađaju izabrano odeljenje</i></h4>
+<ul class="ucenici">
+  <li *ngFor="let roditelj of roditelji">
+    <span class="badge">{{roditelj.id}}</span> {{roditelj.ime}} {{roditelj.prezime}}
+  </li>
+  <div>
+    <button (click)="goBack()" class="btn">Nazad</button>
+  </div>

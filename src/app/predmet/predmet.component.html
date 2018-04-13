@@ -1,0 +1,52 @@
+<div>
+  <h4><i>Predmeti koje sluša odabrani učenik</i></h4>
+<ul class="predmeti">
+  <li class="paginacija"><input type="text" name="ime" [(ngModel)] = "filter.naziv" placeholder="Unesite predmet"></li>
+  <li *ngFor="let predmet of predmeti | predmetfilter:filter | slice:(page-1)*limit:page*limit" (click)="onSelect(predmet)"
+       [class.selected]="predmet === selectedPredmet"
+       (click)="getOceneByUcenikAndPredmet()">
+    <span class="badge">{{predmet.id}}</span> {{predmet.naziv}}
+  </li>
+  <li class="paginacija">
+   <label for="limit">Limit: </label>
+   <input type="number" name="limit" [(ngModel)]="limit" min="1" [attr.max]="[numberOfPredmeti]" step="1" placeholder="Limit">
+ </li>
+ <li class="paginacija">
+   <label for="page">Strana: </label>
+   <input type="number" name="page" [(ngModel)]="page" min="1" [attr.max]="[numberOfPredmeti]" step="1" placeholder="Page">
+ </li>
+</ul>
+</div>
+<div>
+  <button (click)="goBack()" class="btn">Nazad</button>
+</div>
+
+<div *ngIf="selectedPredmet">
+<table id="tabela">
+  <caption>PREGLED OCENA</caption>
+  <thead>
+      <tr>
+        <th><input type="TipOcene" name="tipOcene" [(ngModel)]="filter1.tipOcene" placeholder="Tip ocene"></th>
+        <th><input type="any" name="datumUnosa" [(ngModel)]="filter1.datumUnosa" placeholder="Datum unosa"></th>
+        <th><input type="number" name="polugodiste" [(ngModel)]="filter1.polugodiste" placeholder="Polugodište"></th>
+        <th><input type="number" name="vrednost" [(ngModel)]="filter1.vrednost" [attr.min]="minOcena" [attr.max]="[maxOcena]" step="1" placeholder="Ocena"></th>
+      </tr>
+    </thead>
+<tbody>
+  <tr *ngFor="let ocena of ocene | ocenafilter:filter1 | slice:(page1-1)*limit1:page1*limit1">
+    <td>{{ocena.tipOcene}}</td>
+    <td>{{ocena.datumUnosa}}</td>
+    <td>{{ocena.polugodiste}}</td>
+    <td>{{ocena.vrednost}}</td>
+  </tr>
+</tbody>
+<tfoot>
+    <tr>
+      <td colspan="4">
+        <label for="limit1">Limit: </label><input type="number" name="limit1" [(ngModel)]="limit1" min="1" [attr.max]="[numberOfOcene]" step="1" placeholder="Limit">
+        <label for="page1">Strana: </label><input type="number" name="page1" [(ngModel)]="page1" min="1" [attr.max]="[numberOfOcene]" step="1" placeholder="Page">
+      </td>
+    </tr>
+  </tfoot>
+</table>
+</div>

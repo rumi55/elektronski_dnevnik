@@ -1,0 +1,28 @@
+<div *ngIf="ocena">
+  <h2>Unesite izmene</h2>
+  <div><span>ID: </span>{{ocena.id}}</div>
+  <div>
+    <label>Polugodište:
+      <input [(ngModel)] = "ocena.polugodiste" >
+    </label>
+  </div>
+  <div>
+    <label>Tip ocene:
+      <input [(ngModel)] = "ocena.tipOcene" >
+    </label>
+  </div>
+  <div>
+    <label>Vrednost:
+      <input [(ngModel)] = "ocena.vrednost">
+    </label>
+  </div><br/>
+  <div>
+    <button (click)="goBack()" class="btn">Nazad</button>
+  </div><br/>
+  <div>
+    <button (click)="save()" class="btn">Sačuvaj izmene</button>
+  </div><br/>
+<!--<div>
+<button class="btn" (click)="delete(nastavnik)">Obriši nastavnika</button>
+</div>
+</div>-->

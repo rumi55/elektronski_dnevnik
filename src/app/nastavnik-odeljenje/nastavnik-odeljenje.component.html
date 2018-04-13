@@ -1,0 +1,41 @@
+<h4><i>Odeljenja kojima predaje odabrani nastavnik</i></h4>
+<ul class="odeljenja">
+   <li class="paginacija"><input type="text" name="ime" [(ngModel)] = "filter.oznaka" placeholder="Unesite odeljenje"></li>
+  <li *ngFor="let odeljenje of odeljenja | odeljenjefilter:filter | slice:(page-1)*limit:page*limit" (click)="onSelect(odeljenje)"
+        [class.selected]="odeljenje === selectedOdeljenje"
+        (click)="getUceniciByOdeljenje()">
+    <span class="badge">{{odeljenje.id}}</span> {{odeljenje.oznaka}}
+  </li>
+  <li class="paginacija">
+   <label for="limit">Limit: </label>
+   <input type="number" name="limit" [(ngModel)]="limit" min="1" [attr.max]="[numberOfOdeljenja]" step="1" placeholder="Limit">
+ </li>
+ <li class="paginacija">
+   <label for="page">Strana: </label>
+   <input type="number" name="page" [(ngModel)]="page" min="1" [attr.max]="[numberOfOdeljenja]" step="1" placeholder="Page">
+ </li>
+</ul>
+
+<h4><i>Spisak učenika za odabrano odeljenje</i></h4>
+<div *ngIf="selectedOdeljenje">
+  <ul class="odeljenja">
+  <li class="paginacija"><input type="text" name="ime" [(ngModel)] = "filter1.ime" placeholder="Unesite ime"></li>
+    <li *ngFor="let ucenik of ucenici | ucenikfilter:filter1 | slice:(page1-1)*limit1:page1*limit1">
+    <a routerLink='/nastavnik/{{nastavnikId}}/{{ucenik.id}}'>
+      <span class="badge">{{ucenik.id}}</span> {{ucenik.ime}}  {{ucenik.prezime}}
+    </a>
+    </li>
+   <li class="paginacija">
+     <label for="limit1">Limit: </label>
+     <input type="number" name="limit1" [(ngModel)]="limit1" min="1" [attr.max]="[numberOfUcenici]" step="1" placeholder="Limit">
+   </li>
+   <li class="paginacija">
+     <label for="page1">Strana: </label>
+     <input type="number" name="page1" [(ngModel)]="page1" min="1" [attr.max]="[numberOfUcenici]" step="1" placeholder="Page">
+   </li>
+  </ul>
+</div>
+
+<div>
+  <button (click)="goBack()" class="btn">Nazad</button>
+</div>

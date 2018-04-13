@@ -1,0 +1,23 @@
+<div *ngIf="predmet">
+  <h2>Predmet: {{ predmet.naziv | uppercase }} </h2>
+  <div><span>ID: </span>{{predmet.id}}</div>
+  <div>
+    <label>Naziv predmeta:
+      <input [(ngModel)] = "predmet.naziv" >
+    </label>
+  </div>
+  <div>
+    <label>Fond časova:
+      <input [(ngModel)] = "predmet.fond" >
+    </label>
+  </div><br/>
+  <div>
+    <button (click)="goBack()" class="btn">Nazad</button>
+  </div><br/>
+  <div>
+    <button (click)="save()" class="btn">Sačuvaj izmene</button>
+  </div><br/>
+<div>
+<button class="btn" (click)="delete(predmet)">Obriši predmet</button>
+</div>
+</div>

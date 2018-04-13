@@ -1,0 +1,21 @@
+<h2>Odeljenja</h2>
+<h4><i>Izaberite odeljenje</i></h4>
+<ul class="odeljenja">
+  <li class="paginacija"><input type="text" name="ime" [(ngModel)] = "filter.oznaka" placeholder="Oznaka odeljenja"></li>
+  <li *ngFor="let odeljenje of odeljenja | odeljenjefilter: filter | slice:(page-1)*limit:page*limit">
+    <a routerLink='/predaje/{{odeljenje.id}}'>
+    <span class="badge">{{odeljenje.id}}</span> {{odeljenje.oznaka}}
+  </a>
+  </li>
+  <li class="paginacija">
+    <label for="limit">Limit: </label>
+    <input type="number" name="limit" [(ngModel)]="limit" min="1" [attr.max]="[numberOfOdeljenja]" step="1" placeholder="Limit">
+  </li>
+  <li class="paginacija">
+    <label for="page">Strana: </label>
+    <input type="number" name="page" [(ngModel)]="page" min="1" [attr.max]="[numberOfOdeljenja]" step="1" placeholder="Page">
+  </li>
+</ul>
+<div>
+  <button (click)="goBack()" class="btn">Nazad</button>
+</div>

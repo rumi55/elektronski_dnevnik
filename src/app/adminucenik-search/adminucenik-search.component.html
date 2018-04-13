@@ -1,0 +1,47 @@
+<div id="search-component">
+  <h4><i>Pretraga učenika</i></h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="Unesite jmbg" />
+
+  <ul class="search-result">
+    <li *ngFor="let ucenik of ucenici$ | async" >
+      <a routerLink='/ucenikdetail/{{ucenik.id}}'>
+        {{ucenik.jmbg}}
+      </a>
+    </li>
+  </ul>
+</div>
+
+<h4><i>Dodaj novog učenika</i><h4>
+    <div>
+      <label>Korisnik:<br/>
+       <input #ucenikTipKorisnika />
+     </label><br/>
+      <label>Unesite ime:<br/>
+       <input #ucenikIme />
+      </label><br/>
+      <label>Unesite prezime:<br/>
+       <input #ucenikPrezime />
+      </label><br/>
+      <label>Unesite datum rodjenja:<br/>
+       <input #ucenikDatumRodjenja />
+      </label><br/>
+    <label>Unesite jmbg:<br/>
+      <input #ucenikJmbg />
+    </label><br/>
+    <label>Unesite adresu:<br/>
+      <input #ucenikAdresa />
+    </label><br/>
+    <label>Unesite email:<br/>
+     <input #ucenikEmail />
+    </label><br/>
+      <br/>
+      <button (click)="add(ucenikTipKorisnika.value, ucenikIme.value, ucenikPrezime.value, ucenikDatumRodjenja.value,
+      ucenikJmbg.value, ucenikAdresa.value, ucenikEmail.value); ucenikTipKorisnika.value='';
+      ucenikIme.value=''; ucenikPrezime.value=''; ucenikDatumRodjenja.value=''; ucenikJmbg.value='';
+      ucenikAdresa.value=''; ucenikEmail.value=''" class="btn">Dodaj učenika</button>
+  </div><br/>
+
+<div>
+  <button (click)="goBack()" class="btn">Nazad</button>
+</div>

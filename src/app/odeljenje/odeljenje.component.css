@@ -1,0 +1,53 @@
+.odeljenja {
+  margin: 0 0 2em 0em;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+.odeljenja li {
+  position: relative;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 6px;
+}
+
+.odeljenja .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #85a3e0;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  min-width: 16px;
+  text-align: right;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+button.delete {
+  position:absolute;
+  cursor: pointer;
+   right:0px;
+   top: 0px;
+  background-color: gray !important;
+  color: white;
+}
+
+button.btn {
+    background-color: #adc2eb;
+    border-radius: 12px;
+}
+
+.paginacija {
+  color: #404040;
+  font-size: 14px;
+  background-color: lightgray;
+  //border: 1px solid gray;
+  padding: 4px;
+}

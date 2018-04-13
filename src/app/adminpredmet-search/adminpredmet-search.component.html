@@ -1,0 +1,30 @@
+<div id="search-component">
+  <h4><i>Pretraga predmeta</i></h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="Unesite naziv predmeta" />
+
+  <ul class="search-result">
+    <li *ngFor="let predmet of predmeti$ | async" >
+      <a routerLink='/predmetdetail/{{predmet.id}}'>
+        {{predmet.naziv}}
+      </a>
+    </li>
+  </ul>
+</div>
+
+  <h4><i>Dodaj novi predmet</i><h4>
+      <div>
+        <label>Naziv predmeta:<br/>
+         <input #predmetNaziv />
+       </label><br/>
+        <label>Fond časova:<br/>
+         <input #predmetFond />
+        </label><br/>
+        <br/>
+        <button (click)="add(predmetNaziv.value, predmetFond.value); predmetNaziv.value='';
+        predmetFond.value=''" class="btn">Dodaj predmet</button>
+    </div><br/>
+
+<div>
+  <button (click)="goBack()" class="btn">Nazad</button>
+</div>

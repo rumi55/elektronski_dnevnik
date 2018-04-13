@@ -1,0 +1,48 @@
+<div *ngIf="administrator">
+  <h2>Administrator: {{ administrator.ime | uppercase }} {{ administrator.prezime | uppercase }} </h2>
+  <div><span>ID: </span>{{administrator.id}}</div>
+  <div>
+    <label>Tip korisnika:
+      <input [(ngModel)] = "administrator.tipKorisnika" >
+    </label>
+  </div>
+  <div>
+    <label>Ime:
+      <input [(ngModel)] = "administrator.ime" >
+    </label>
+  </div>
+  <div>
+    <label>Prezime:
+      <input [(ngModel)] = "administrator.prezime" >
+    </label>
+  </div>
+  <div>
+    <label>Email:
+      <input [(ngModel)] = "administrator.email" type="email">
+    </label>
+  </div>
+  <div>
+    <label>JMBG:
+      <input [(ngModel)] = "administrator.jmbg" >
+    </label>
+  </div>
+  <div>
+    <label>Adresa:
+      <input [(ngModel)] = "administrator.adresa" >
+    </label>
+  </div>
+  <div>
+    <label>Datum rodjenja:
+      <input [(ngModel)] = "administrator.datumRodjenja">
+    </label>
+  </div><br/>
+  <div>
+    <button (click)="goBack()" class="btn">Nazad</button>
+  </div><br/>
+  <div>
+    <button (click)="save()" class="btn">Sačuvaj</button>
+  </div><br/>
+</div>
+<div>
+<button class="btn" (click)="delete(administrator)">Obriši administratora</button>
+</div>

@@ -1,0 +1,77 @@
+#tabela body {
+  background: #b3ecff;
+  margin: 0;
+  padding: 0;
+}
+
+#tabela table {
+  left: 10%;
+  margin: 20px auto;
+  overflow-y: scroll;
+  position: static;
+  border: 1px solid black;
+}
+#tabela tfoot td {
+  background: #88CCF1;
+  padding: 4px;
+
+
+}
+
+#tabela input {
+  padding: 1px 2px;
+}
+#tabela input[type=number] {
+  width: 100px;
+}
+
+#tabela th {
+  background: #88CCF1;
+  color: #FFF;
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+}
+#tabela thead th, table tfoot td {
+  padding: 4px;
+}
+
+
+#tabela tr {
+  background: #d1ecfa;
+  border-bottom: 1px solid #FFF;
+  margin-bottom: 5px;
+  padding: 2px 4px;
+}
+
+#tabela th, td {
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+
+  text-align: center;
+  width: auto;
+  height: auto;
+    padding: 3px 3px;
+}
+
+button.btn {
+    background-color: #adc2eb;
+    border-radius: 12px;
+}
+
+.paginacija {
+  color: #404040;
+  font-size: 14px;
+  background-color: lightgray;
+  //border: 1px solid gray;
+  padding: 4px;
+}
+
+.obelezi {
+  font-size: 15px;
+  color: red;
+}

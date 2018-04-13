@@ -1,0 +1,85 @@
+<h4><i>Dodaj ocenu</i><h4>
+    <div>
+      <label>Polugodište:
+       <input #ocenaPolugodiste />
+      </label>
+    <label>Tip ocene:
+      <input #ocenaTipOcene />
+    </label>
+    <label>Vrednost:
+      <input #ocenaVrednost />
+    </label>
+      <button class="btn" (click)="add(ocenaPolugodiste.value, ocenaTipOcene.value, ocenaVrednost.value); ocenaPolugodiste.value='';
+      ocenaTipOcene.value=''; ocenaVrednost.value=''">Dodaj</button>
+  </div><br/>
+
+<div>
+<table id="tabela">
+  <caption>PREGLED OCENA</caption>
+  <thead>
+      <tr>
+        <th><input type="number" name="id" [(ngModel)]="filter1.id" min="1" [attr.max]="[numberOfOcene]" step="1" placeholder="Id"></th>
+        <th><input type="TipOcene" name="tipOcene" [(ngModel)]="filter1.tipOcene" placeholder="Tip ocene"></th>
+        <th><input type="any" name="datumUnosa" [(ngModel)]="filter1.datumUnosa" placeholder="Datum unosa"></th>
+        <th><input type="number" name="polugodiste" [(ngModel)]="filter1.polugodiste" placeholder="Polugodište"></th>
+        <th><input type="number" name="vrednost" [(ngModel)]="filter1.vrednost" [attr.min]="minOcena" [attr.max]="[maxOcena]" step="1" placeholder="Ocena"></th>
+      </tr>
+    </thead>
+<tbody>
+  <tr *ngFor="let ocena of ocene | ocenafilter:filter1 | slice:(page-1)*limit:page*limit">
+    <a routerLink='/ocenaizmena/{{ocena.id}}'><td>{{ocena.id}}</td></a>
+    <td>{{ocena.tipOcene}}</td>
+    <td>{{ocena.datumUnosa}}</td>
+    <td>{{ocena.polugodiste}}</td>
+    <td>{{ocena.vrednost}}</td>
+    <button class="delete" title="obriši ocenu"
+      (click)="delete(ocena)">x</button>
+  </tr>
+</tbody>
+<tfoot>
+    <tr>
+      <td colspan="5">
+        <label for="limit">Limit: </label><input type="number" name="limit" [(ngModel)]="limit" min="1" [attr.max]="[numberOfOcene]" step="1" placeholder="Limit">
+        <label for="page">Strana: </label><input type="number" name="page" [(ngModel)]="page" min="1" [attr.max]="[numberOfOcene]" step="1" placeholder="Page">
+      </td>
+    </tr>
+  </tfoot>
+</table>
+</div><br/>
+
+<!--<h4><i>Izračunaj zaključne ocene</i></h4>
+<div>
+  <label>Zaključna ocena 1.polugodište:</label>
+  <input type="button" name="button" value="Izračunaj" (click)="izracunajZakljucnaOcenaPolugodiste1()"/>
+  <input type="text" id=zakljucnaOcenaPolugodiste name="result" value=""/>
+<br/>-->
+
+<div>
+<div>Prosek ocena za prvo polugodište: <span class="obelezi">{{zakljucnaOcenaPolugodiste | number : '1.2-3'}}</span> <!--{minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}-->
+<button class="btn" (click)="izracunajZakljucnaOcenaPolugodiste1()">Izračunaj</button>
+</div><br/>
+
+<div>
+  <div>Prosek ocena za drugo polugodište: <span class="obelezi">{{zakljucnaOcena  | number : '1.2-3'}}</span>
+<button class="btn" (click)="izracunajZakljucnaOcena()">Izračunaj</button>
+</div><br/>
+
+<!--<table id="tabela">
+  <caption>Predlog zaključnih ocena</caption>
+  <thead>
+    <tr>
+      <th>Polugodište 1</th>
+      <th>Polugodište 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{zakljucnaOcenaPolugodiste | number : '1.2-3'}}</td>
+      <td>{{zakljucnaOcena  | number : '1.2-3'}}</td>
+    </tr>
+  </tbody>
+</table>-->
+
+  <div>
+    <button (click)="goBack()" class="btn">Nazad</button>
+  </div>

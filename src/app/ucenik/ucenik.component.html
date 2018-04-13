@@ -1,0 +1,19 @@
+<h2>Učenici</h2>
+<ul class="ucenici">
+  <li class="paginacija"><input type="text" name="ime" [(ngModel)] = "filter.ime" placeholder="Unesite ime"></li>
+  <li *ngFor="let ucenik of ucenici | ucenikfilter:filter | slice:(page-1)*limit:page*limit">
+    <a routerLink='/ucenikdetail/{{ucenik.id}}'>
+    <span class="badge">{{ucenik.id}}</span> {{ucenik.ime}} {{ucenik.prezime}}
+  </a>
+  <li class="paginacija">
+    <label for="limit">Limit: </label>
+    <input type="number" name="limit" [(ngModel)]="limit" min="1" [attr.max]="[numberOfUcenici]" step="1" placeholder="Limit">
+  </li>
+  <li class="paginacija">
+    <label for="page">Strana: </label>
+    <input type="number" name="page" [(ngModel)]="page" min="1" [attr.max]="[numberOfUcenici]" step="1" placeholder="Page">
+  </li>
+</ul>
+<div>
+  <button (click)="goBack()" class="btn">Nazad</button>
+</div>

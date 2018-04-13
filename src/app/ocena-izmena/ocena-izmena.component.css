@@ -1,0 +1,12 @@
+button.delete {
+  position: relative;
+  left: 194px;
+  top: -32px;
+  background-color: gray !important;
+  color: white;
+}
+
+button.btn {
+    background-color: #adc2eb;
+    border-radius: 12px;
+}

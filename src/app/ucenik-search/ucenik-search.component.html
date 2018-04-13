@@ -1,0 +1,13 @@
+<div id="search-component">
+  <h4><i>Pretraga ucenika</i></h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="Unesite jmbg" />
+
+  <ul class="search-result">
+    <li *ngFor="let ucenik of ucenici$ | async" >
+      <a routerLink='/ucenik/{{ucenik.id}}'>
+        {{ucenik.jmbg}}
+      </a>
+    </li>
+  </ul>
+</div>
